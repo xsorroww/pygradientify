@@ -7,8 +7,6 @@ make terminal UI'S beautiful.
 
 ## Installation
 
-Install my-project with npm
-
 ```bash
 pip install pygradient
 
