@@ -1,5 +1,5 @@
 
-# pygradient
+# pygradientify
 
 make terminal UI'S beautiful.
 
@@ -8,9 +8,9 @@ make terminal UI'S beautiful.
 ## Installation
 
 ```bash
-pip install pygradient
+pip install pygradientify
 
-pacman -S python-pygradient
+pacman -S python-pygradientify
 ```
     
 ## Usage / examples
@@ -18,29 +18,38 @@ pacman -S python-pygradient
 ```python
 from pygradientify import Colors
 
+# ps: dir is horizontal by default.
 """
-normal print
+Normal
 """
-print(Colors.red_to_blue("Hello World!"))
-print(Colors.mystic("Hello World!"))
+print(Colors.red_to_blue("Hello World!", dir="h"))
+print(Colors.mystic("Hello World!", dir="h"))
 
 """
-ascii art print
+ascii
 """
 art = """
 ╔═╗╦ ╦╔═╗╦═╗╔═╗╔╦╗╦╔═╗╔╗╔╔╦╗╦╔═╗╦ ╦
 ╠═╝╚╦╝║ ╦╠╦╝╠═╣ ║║║║╣ ║║║ ║ ║╠╣ ╚╦╝
-╩   ╩ ╚═╝╩╚═╩ ╩═╩╝╩╚═╝╝╚╝ ╩ ╩╚   ╩ 
+╩   ╩ ╚═╝╩╚═╩ ╩═╩╝╩╚═╝╝╚╝ ╩ ╩╚   ╩  
 """
 
-print(Colors.blue_to_cyan(art))
-print(Colors.purple_to_white(art))
-print(Colors.orange_to_pink(art))
+print(Colors.blue_to_cyan(art, dir="h"))
+print(Colors.purple_to_white(art, dir="h"))
+print(Colors.orange_to_pink(art, dir="h"))
+print(Colors.rainbow(art, dir="h")) # Rainbow gradient
 
 """
-all colors.
+vertical will not work with rainbow it will fallback to horizontal
 """
-for gradients in Colors.colors:
-    grad = getattr(Colors, gradients)
-    print(grad(f"{gradients}: The quick brown fox jumps over the lazy dog"))
+print(Colors.rainbow(art, dir="v"))
+
+"""
+all gradients.
+"""
+for gradient_name in Colors.ls():
+    grad = getattr(Colors, gradient_name)
+    print(grad(f"{gradient_name}: The quick brown fox jumps over the lazy dog", dir="h"))
+
+
 ```
